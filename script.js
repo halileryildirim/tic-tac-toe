@@ -5,6 +5,6 @@ const Gameboard = (() => {
 
 })();
 
-const player = (name) => {
-    
+const playerCreation = (name, symbol) => {
+    return {name, symbol};
 }
