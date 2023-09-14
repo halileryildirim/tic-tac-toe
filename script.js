@@ -1,11 +1,12 @@
 const Gameboard = (() => {
     let gameboard = {
-        squares:["","","","","","","","",""]
+        squares:["X","O","X","O","O","O","X","O","X"]
     }
 
     return {gameboard};
 })();
 
+const gameArray = Gameboard.gameboard.squares;
 const Player = (name, symbol) => {
     return {name, symbol}
 };
@@ -13,10 +14,21 @@ const Player = (name, symbol) => {
 
 const start = document.querySelector("#start");
 const restart = document.getElementById("reset");
+
+
 start.addEventListener("click", () => {
-    alert("SA")
+   
 });
 
 restart.addEventListener("click", () => {
-    alert("AS")
+    
 })
+
+const playBoard = document.querySelector("#gameboard")
+
+
+for (cell in gameArray) {
+    const cells = document.createElement('div');
+    cells.innerText = gameArray[cell];
+    playBoard.appendChild(cells);
+}
