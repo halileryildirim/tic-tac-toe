@@ -7,14 +7,14 @@ const Gameboard = (() => {
 })();
 
 const gameArray = Gameboard.gameboard.squares;
+const playBoard = document.querySelector("#gameboard")
+
 const Player = (name, symbol) => {
     return {name, symbol}
 };
 
-
 const start = document.querySelector("#start");
 const restart = document.getElementById("reset");
-
 
 start.addEventListener("click", () => {
    
@@ -23,9 +23,6 @@ start.addEventListener("click", () => {
 restart.addEventListener("click", () => {
     
 })
-
-const playBoard = document.querySelector("#gameboard")
-
 
 for (cell in gameArray) {
     const cells = document.createElement('div');
