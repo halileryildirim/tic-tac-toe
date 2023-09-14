@@ -10,7 +10,13 @@ const Player = (name, symbol) => {
     return {name, symbol}
 };
 
-document.querySelector("#start").addEventListener("click", () => {
-    let playerX = Player(document.querySelector("#playerX").value, "X");
-    let playerO = Player(document.querySelector("#playerO").value, "O");
+
+const start = document.querySelector("#start");
+const restart = document.getElementById("reset");
+start.addEventListener("click", () => {
+    alert("SA")
 });
+
+restart.addEventListener("click", () => {
+    alert("AS")
+})
