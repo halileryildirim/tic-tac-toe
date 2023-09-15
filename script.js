@@ -23,12 +23,12 @@ start.addEventListener("click", () => {
 restart.addEventListener("click", () => {
     round = 0;
 })
+
 let round = 0;
 
 for (cell in gameArray) {
     const cells = document.createElement('div');
     cells.setAttribute("class", "cells")
-    cells.innerText = gameArray[cell];
     playBoard.appendChild(cells);
 
     document.querySelectorAll(".cells")[cell].addEventListener("click", ()=> {
