@@ -16,10 +16,10 @@ body, html {
     font-size: 90px;
     border: 1px solid black;
 }
+
 #gameboard {
     display: grid;
     grid-template-columns: 200px 200px 200px;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;  
 }
