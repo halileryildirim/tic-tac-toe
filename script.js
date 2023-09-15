@@ -26,7 +26,16 @@ restart.addEventListener("click", () => {
 
 for (cell in gameArray) {
     const cells = document.createElement('div');
-    cells.setAttribute("id", "cells")
+    cells.setAttribute("class", "cells")
     cells.innerText = gameArray[cell];
     playBoard.appendChild(cells);
+
+    document.getElementsByClassName("cells")[cell].addEventListener("click", ()=> {
+        while(cells.innerText == "") {
+            cells.innerText = "O"
+        }
+    })
+
 }
+
+
