@@ -21,8 +21,9 @@ start.addEventListener("click", () => {
 });
 
 restart.addEventListener("click", () => {
-    
+    round = 0;
 })
+let round = 0;
 
 for (cell in gameArray) {
     const cells = document.createElement('div');
@@ -30,9 +31,16 @@ for (cell in gameArray) {
     cells.innerText = gameArray[cell];
     playBoard.appendChild(cells);
 
-    document.getElementsByClassName("cells")[cell].addEventListener("click", ()=> {
+    document.querySelectorAll(".cells")[cell].addEventListener("click", ()=> {
         while(cells.innerText == "") {
-            cells.innerText = "O"
+            if(round%2 == 0) {
+                cells.innerText="X";
+                ++round;
+            }
+            else if (round % 2 == 1) {
+                cells.innerText="O";
+                ++round;
+            }
         }
     })
 
