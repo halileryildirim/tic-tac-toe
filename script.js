@@ -36,14 +36,15 @@ for (cell in gameArray) {
             if(round%2 == 0) {
                 cells.innerText="X";
                 ++round;
+                document.querySelector("#message").innerText="Player O's Turn";
             }
             else if (round % 2 == 1) {
                 cells.innerText="O";
                 ++round;
+                document.querySelector("#message").innerText="Player X's Turn";
             }
         }
     })
-
 }
 
 
