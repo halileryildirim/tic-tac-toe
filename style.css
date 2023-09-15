@@ -5,3 +5,21 @@ body, html {
     text-align: center;
     font-size: 36px;
 }
+
+#cells {
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    font-size: 90px;
+    border: 1px solid black;
+}
+#gameboard {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    justify-content: center;
+    align-items: center;
+    
+}
