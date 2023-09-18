@@ -21,19 +21,29 @@ const game = (() =>{
             cell.setAttribute("id", `${cells}`);
             playBoard.appendChild(cell);
 
+            const restart = document.getElementById("reset");
+            restart.addEventListener("click", () => {
+                cell.innerText = " ";
+                gameArray[cell.id] = " ";
+                round = 0;
+                message.innerText = "X Starts First!";
+                console.log(gameArray);
+            });
+
             cell.addEventListener("click", () => {
                 if(gameArray[cell.id] == " ") {
                     if(round % 2 == 0) {
                         gameArray[cell.id] = "X";
                         cell.innerText = gameArray[cell.id];
                         ++round;
-                        message.innerText = "Player O's Turn"; // Update with actual player names
+                        message.innerText = "Player O's Turn!"; // Update with actual player names
                     }
+
                     else if (round % 2 == 1) {
                         gameArray[cell.id] = "O";
                         cell.innerText = gameArray[cell.id];
                         ++round;
-                        message.innerText = "Player X's Turn";
+                        message.innerText = "Player X's Turn!";
                     }
                 }
                 
@@ -41,13 +51,6 @@ const game = (() =>{
             });
         };
 
-        
-
-        const restart = document.getElementById("reset");
-        restart.addEventListener("click", () => {
-            round = 0;
-            
-        });
     }
     return {start};
 })();
@@ -57,9 +60,7 @@ const Player = (name, symbol) => {
 };
 
 const start = document.querySelector("#start");
-
 start.addEventListener("click", () => {
-    console.log("started")
     game.start();
 });
 
