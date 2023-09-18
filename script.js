@@ -1,4 +1,6 @@
 const playBoard = document.querySelector("#gameboard")
+const start = document.querySelector("#start");
+const restart = document.getElementById("reset");
 
 const Gameboard = (() => {
     const gameboard = {
@@ -7,7 +9,7 @@ const Gameboard = (() => {
     return {gameboard};
 })();
 
-const game = (() =>{
+const game = (() => {
     const start = () => {
         let round = 0;
 
@@ -21,7 +23,6 @@ const game = (() =>{
             cell.setAttribute("id", `${cells}`);
             playBoard.appendChild(cell);
 
-            const restart = document.getElementById("reset");
             restart.addEventListener("click", () => {
                 cell.innerText = " ";
                 gameArray[cell.id] = " ";
@@ -59,7 +60,7 @@ const Player = (name, symbol) => {
     return {name, symbol}
 };
 
-const start = document.querySelector("#start");
+
 start.addEventListener("click", () => {
     game.start();
 });
