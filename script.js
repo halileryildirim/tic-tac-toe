@@ -1,50 +1,66 @@
-const Gameboard = (() => {
-    let gameboard = {
-        squares:["","","","","","","","",""]
-    }
+const playBoard = document.querySelector("#gameboard")
 
+const Gameboard = (() => {
+    const gameboard = {
+        squares:[" "," "," "," "," "," "," "," "," "]
+    }
     return {gameboard};
 })();
 
-const gameArray = Gameboard.gameboard.squares;
-const playBoard = document.querySelector("#gameboard")
+const game = (() =>{
+    const start = () => {
+        let round = 0;
+
+        const gameArray = Gameboard.gameboard.squares;
+        const message = document.querySelector("#message");
+
+        for(cells in gameArray) {
+            const cell = document.createElement("div");
+            cell.innerText = " ";
+            cell.setAttribute("class", "cells");
+            cell.setAttribute("id", `${cells}`);
+            playBoard.appendChild(cell);
+
+            cell.addEventListener("click", () => {
+                if(gameArray[cell.id] == " ") {
+                    if(round % 2 == 0) {
+                        gameArray[cell.id] = "X";
+                        cell.innerText = gameArray[cell.id];
+                        ++round;
+                        message.innerText = "Player O's Turn"; // Update with actual player names
+                    }
+                    else if (round % 2 == 1) {
+                        gameArray[cell.id] = "O";
+                        cell.innerText = gameArray[cell.id];
+                        ++round;
+                        message.innerText = "Player X's Turn";
+                    }
+                }
+                
+                console.log(gameArray);
+            });
+        };
+
+        
+
+        const restart = document.getElementById("reset");
+        restart.addEventListener("click", () => {
+            round = 0;
+            
+        });
+    }
+    return {start};
+})();
 
 const Player = (name, symbol) => {
     return {name, symbol}
 };
 
 const start = document.querySelector("#start");
-const restart = document.getElementById("reset");
 
 start.addEventListener("click", () => {
-   
+    console.log("started")
+    game.start();
 });
-
-restart.addEventListener("click", () => {
-    round = 0;
-})
-
-let round = 0;
-
-for (cell in gameArray) {
-    const cells = document.createElement('div');
-    cells.setAttribute("class", "cells")
-    playBoard.appendChild(cells);
-
-    document.querySelectorAll(".cells")[cell].addEventListener("click", ()=> {
-        while(cells.innerText == "") {
-            if(round%2 == 0) {
-                cells.innerText="X";
-                ++round;
-                document.querySelector("#message").innerText="Player O's Turn";
-            }
-            else if (round % 2 == 1) {
-                cells.innerText="O";
-                ++round;
-                document.querySelector("#message").innerText="Player X's Turn";
-            }
-        }
-    })
-}
 
 
