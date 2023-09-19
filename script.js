@@ -21,6 +21,7 @@ const game = (() => {
         const PlayerX = Player(document.getElementById("playerX").value, "X");
         const PlayerO = Player(document.getElementById("playerO").value, "O");
 
+        message.innerText = `${PlayerX.name} is starting first`;
 
         for(cells in gameArray) {
 
@@ -73,10 +74,9 @@ start.addEventListener("click", (event) => {
 
     if(validateO && validateX) {
         event.preventDefault();
-        game.start()
-        message.innerText = "X Starts First";
+        game.start();
     }
-    else {message.innerText = "Enter Players Name First"};
+    else {message.innerText = "Enter Players Name First!"};
     
 })
 
