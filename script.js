@@ -18,6 +18,10 @@ const game = (() => {
     const start = () => {
         let round = 0;
 
+        const PlayerX = Player(document.getElementById("playerX").value, "X");
+        const PlayerO = Player(document.getElementById("playerO").value, "O");
+
+
         for(cells in gameArray) {
 
             const cell = document.createElement("div");
@@ -30,24 +34,24 @@ const game = (() => {
                 cell.innerText = " ";
                 gameArray[cell.id] = " ";
                 round = 0;
-                message.innerText = "X Starts First!";
-                console.log(gameArray);
+                message.innerText = " Enter Players Name & Hit Start! ";
+                playBoard.replaceChildren();
             });
 
             cell.addEventListener("click", () => {
                 if(gameArray[cell.id] == " ") {
                     if(round % 2 == 0) {
-                        gameArray[cell.id] = "X";
+                        gameArray[cell.id] = PlayerX.symbol;
                         cell.innerText = gameArray[cell.id];
                         ++round;
-                        message.innerText = "Player O's Turn!"; // Update with actual player names
+                        message.innerText =  `${PlayerO.name}'s turn` // Update with actual player names
                     }
 
                     else if (round % 2 == 1) {
-                        gameArray[cell.id] = "O";
+                        gameArray[cell.id] = PlayerO.symbol;
                         cell.innerText = gameArray[cell.id];
                         ++round;
-                        message.innerText = "Player X's Turn!";
+                        message.innerText = `${PlayerX.name}'s turn`;
                     }
                 }
             });
@@ -57,6 +61,8 @@ const game = (() => {
 })();
 
 const Player = (name, symbol) => {
+    this.name = name;
+    this.symbol = symbol;
     return {name, symbol}
 };
 
@@ -68,7 +74,9 @@ start.addEventListener("click", (event) => {
     if(validateO && validateX) {
         event.preventDefault();
         game.start()
+        message.innerText = "X Starts First";
     }
+    else {message.innerText = "Enter Players Name First"};
     
 })
 
