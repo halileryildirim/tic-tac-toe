@@ -1,6 +1,7 @@
 const playBoard = document.querySelector("#gameboard")
 const start = document.querySelector("#start");
 const restart = document.getElementById("reset");
+const message = document.querySelector("#message");
 
 const Gameboard = (() => {
     const gameboard = {
@@ -9,14 +10,16 @@ const Gameboard = (() => {
     return {gameboard};
 })();
 
+
+
 const game = (() => {
+    const gameArray = Gameboard.gameboard.squares;
+    
     const start = () => {
         let round = 0;
 
-        const gameArray = Gameboard.gameboard.squares;
-        const message = document.querySelector("#message");
-
         for(cells in gameArray) {
+
             const cell = document.createElement("div");
             cell.innerText = " ";
             cell.setAttribute("class", "cells");
@@ -47,11 +50,8 @@ const game = (() => {
                         message.innerText = "Player X's Turn!";
                     }
                 }
-                
-                console.log(gameArray);
             });
         };
-
     }
     return {start};
 })();
@@ -61,8 +61,15 @@ const Player = (name, symbol) => {
 };
 
 
-start.addEventListener("click", () => {
-    game.start();
-});
+start.addEventListener("click", (event) => {
+    let validateX = document.getElementById("playerX").checkValidity();
+    let validateO = document.getElementById("playerO").checkValidity();
+
+    if(validateO && validateX) {
+        event.preventDefault();
+        game.start()
+    }
+    
+})
 
 
