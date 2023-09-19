@@ -10,7 +10,16 @@ const Gameboard = (() => {
     return {gameboard};
 })();
 
-
+/*
+[0,1,2]
+[3,4,5]
+[6,7,8]
+[0,3,6] Win conditions
+[1,4,7]
+[2,5,8]
+[0,4,8]
+[2,4,6]
+*/
 
 const game = (() => {
     const gameArray = Gameboard.gameboard.squares;
@@ -45,7 +54,7 @@ const game = (() => {
                         gameArray[cell.id] = PlayerX.symbol;
                         cell.innerText = gameArray[cell.id];
                         ++round;
-                        message.innerText =  `${PlayerO.name}'s turn` // Update with actual player names
+                        message.innerText =  `${PlayerO.name}'s turn`;
                     }
 
                     else if (round % 2 == 1) {
