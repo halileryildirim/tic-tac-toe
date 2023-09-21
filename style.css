@@ -4,10 +4,15 @@ body, html {
     font-family: sans-serif;
     text-align: center;
     font-size: 36px;
+    background-color: #352D39;
+    color: #FFFCF9;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .cells {
-    background-color: white;
+    background-color: #352D39;
     width: 200px;
     height: 200px;
     text-align: center;
@@ -17,16 +22,16 @@ body, html {
 }
 
 [id = '3'],[id = '4'],[id = '5']{
-   border-top: 5px solid black;
-   border-bottom: 5px solid black; 
+   border-top: 5px solid #FFFCF9;
+   border-bottom: 5px solid #FFFCF9; 
 }
 
 [id = '1'],[id = '4'],[id = '7']{
-    border-left: 5px solid black;
+    border-left: 5px solid #FFFCF9;
 }
 
 [id = '2'],[id = '5'],[id = '8']{
-    border-left: 5px solid black;
+    border-left: 5px solid #FFFCF9;
 }
 
 #gameboard {
@@ -38,3 +43,52 @@ body, html {
     min-height: 610px;
 }
 
+#nav-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#inputs {
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+#playerX, #playerO {
+    height: 36px;
+    width: 300px;
+    font-size: 30px;
+    border-radius: 5px;
+    border: 2px solid #B1EDE8;
+    background-color: transparent;
+    color: #B1EDE8;
+    line-height: 36px;
+    text-align: center;   
+}
+
+::placeholder {
+    color: #B1EDE8;
+    opacity: 1;
+    font-size: 30px;
+}
+
+#buttons {
+    min-height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #6D435A;
+    color: #FFFCF9;
+}

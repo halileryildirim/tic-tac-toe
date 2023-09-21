@@ -11,12 +11,15 @@
     <div id="header"><p>TIC TAC TOE</p></div>
     <div id="body"><div id="gameboard"></div></div>
     <div id="nav-bar">
-        <input type="text" id="playerX" class="playerX" placeholder="Name of Player X" required>
-        <input type="text" id="playerO" class="playerO" placeholder="Name of Player O" required>  
+        <div id="inputs">
+            <input type="text" id="playerX" class="playerX" placeholder="Name of Player X" required>
+            <input type="text" id="playerO" class="playerO" placeholder="Name of Player O" required>  
+        </div>
         <div id="message"> Enter Player Names & Hit Start! </div>
-        <div id="result"></div>
-        <button type="submit" id="start">START</button>
-        <button id="reset">RESTART</button>
+        <div id="buttons">
+            <button class="start" type="submit" id="start">START</button>
+            <button class="reset" id="reset">RESTART</button>
+        </div>
     </div>
 </body>
 </html>
