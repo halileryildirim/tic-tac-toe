@@ -77,7 +77,7 @@ const game = (() => {
                 cell.innerText = " ";
                 gameArray.fill(" ");
                 round = 0;
-                message.innerText = " Enter Player Names & Hit Start! ";
+                message.innerText = "Enter Player Names & Hit Start!";
                 playBoard.replaceChildren();
             });
 
