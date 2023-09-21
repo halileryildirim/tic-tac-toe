@@ -23,11 +23,7 @@ const winnerDeclare = (() => {
     const winner = () => {
 
         let combinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-        let winner = false;
-
-        if(!gameArray.includes(" ")) {
-            console.log("It's a tie!")
-        }
+        let winner = false
 
         for(combs in combinations) {
             let indicator = combinations[combs];
@@ -42,7 +38,7 @@ const winnerDeclare = (() => {
                 message.innerText = "O";
             }
             else if(!gameArray.includes(" ") && !winner) {
-                message.innerText = "TIE"
+                message.innerText = "It's a TIE!"
             } 
         }
         return winner;
@@ -61,13 +57,13 @@ const game = (() => {
         window.addEventListener("click", ()=>{
             winnerDeclare.winner();
             if(message.innerText == "X"){
-                message.innerText = `${PlayerX.name} wins`;
+                message.innerText = `Winner is: ${PlayerX.name}!`;
             }
             else if(message.innerText == "O") {
-                message.innerText = `${PlayerO.name} wins!`;
+                message.innerText = `Winner is: ${PlayerO.name}!`;
             }
         });
-        message.innerText = `${PlayerX.name} is starting first`;
+        message.innerText = `${PlayerX.name} is starting first!`;
 
         for(cells in gameArray) {
 
